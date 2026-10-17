@@ -1,0 +1,82 @@
+@use "../tools" as *;
+
+.section-faq {
+	padding-top: unset;
+
+	&__container {
+	}
+
+	&__title {
+		color: var(--color-dark);
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: adapt(32, 24, $tablet);
+	}
+}
+
+.faq-item {
+	@include flex-column;
+	&__btn {
+		@include reset-btn;
+		display: flex;
+		gap: 20px;
+
+		@include media($mobile) {
+			gap: 10px;
+		}
+
+		@include hover {
+			.faq-item__title {
+				color: var(--color-accent);
+			}
+		}
+	}
+
+	&__number {
+		flex-shrink: 0;
+		@include square(44px);
+		@include flex-center;
+		text-align: center;
+		background: var(--color-accent);
+		color: var(--color-white);
+	}
+
+	&__title {
+		color: var(--color-dark);
+		transition: all 0.3s ease-in-out;
+		margin-right: auto;
+		@include media($mobile, min) {
+			margin-top: 7px;
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		@include square(44px);
+		@include flex-center;
+		text-align: center;
+		background: var(--color-accent);
+		@include icon(url("../../../public/images/icons/arrow-down.svg"), after, 24px);
+
+		&:after {
+			.spoiler-active & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__content {
+	}
+
+	&__descr {
+		padding: 20px 64px 0;
+
+		@include media($mobile) {
+			padding: unset;
+			padding-top: 20px;
+		}
+	}
+}

@@ -1,0 +1,197 @@
+@use "../tools" as *;
+.cookie-banner,
+.cookie-modal {
+	--artcly-cc-accent: var(--color-accent);
+	--artcly-cc-accent-hover: var(--color-accent-hover);
+
+	--artcly-cc-accent-secondary: var(--color-accent);
+	--artcly-cc-accent-secondary-hover: var(--color-accent-hover);
+
+	--artcly-cc-neutral-bg: var(--color-0);
+	--artcly-cc-neutral-border: var(--color-0);
+}
+.cookie-banner {
+	padding: adapt(20, 10, $mobile) adapt(24, 10, $mobile);
+	font: inherit;
+}
+.cookie-banner-container {
+	gap: 10px 32px;
+}
+.cookie-banner-content {
+	@include flex-column;
+	gap: adapt(16, 10);
+}
+.cookie-banner-title {
+	@include title-3;
+	color: var(--color-dark);
+}
+.cookie-banner-description {
+	font-size: 16px;
+
+	@include media($mobile) {
+		font-size: 14px;
+	}
+}
+.cookie-actions {
+	flex: 0 1 15%;
+
+	@include media($mobile) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+.cookie-btn {
+	border-radius: 0;
+	padding-block: 12px;
+	font-weight: 600;
+	font-size: 16px;
+
+	@include media($mobile) {
+		flex: 1;
+		width: initial;
+	}
+}
+.cookie-btn-accept {
+}
+.cookie-btn-decline {
+}
+.cookie-btn-settings {
+	text-decoration: underline;
+	font-weight: 600;
+	color: var(--color-gray);
+	@include hover {
+		color: var(--color-accent);
+		background: var(--color-0);
+	}
+	@include media($mobile) {
+		flex: 1 1 100%;
+	}
+}
+
+// modal
+.cookie-modal {
+	--artcly-cc-chk-disabled-bg: var(--color-accent);
+	--artcly-cc-chk-border: var(--color-input-border);
+	--artcly-cc-chk-bg-active: var(--color-accent);
+	--artcly-cc-chk-bg-active: var(--color-accent);
+
+	--artcly-cc-neutral-bg: var(--color-accent);
+	--artcly-cc-neutral-border: var(--color-accent);
+}
+.cookie-modal-backdrop {
+}
+.cookie-modal-dialog-container {
+	max-width: 640px;
+}
+.cookie-modal-dialog {
+	border-radius: 0;
+	padding: adapt(20, 10, $mobile);
+}
+.cookie-modal-close {
+	top: 0;
+	right: 0;
+	@include square(40px);
+	padding: 8px;
+	top: adapt(20, 10, $mobile);
+	right: adapt(20, 10, $mobile);
+	margin-left: auto;
+	z-index: 5;
+	background: var(--color-accent);
+	color: var(--color-white);
+	border-radius: 0;
+	text-align: center;
+	line-height: 0.5em;
+	transition: all 0.3s;
+	svg {
+		transition: all 0.3s;
+	}
+	@include hover {
+		color: var(--color-white);
+		svg {
+			transform: rotate(90deg);
+		}
+	}
+}
+.cookie-modal-title {
+	@include title-3;
+	padding-right: 64px;
+	&:not(:last-child) {
+		margin-bottom: adapt(16, 10);
+	}
+}
+.cookie-modal-top-text {
+	padding-right: 64px;
+	font-size: adapt(16, 14);
+	&:not(:last-child) {
+		margin-bottom: adapt(32, 24);
+	}
+}
+.cookie-settings-list {
+	@include flex-column;
+	gap: 20px;
+	&:not(:last-child) {
+		margin-bottom: adapt(32, 24);
+	}
+}
+.cookie-setting-row {
+	border: none;
+	padding: 0;
+}
+.cookie-setting-row--checkbox {
+	label {
+		gap: 16px;
+	}
+}
+.cookie-checkbox-icon {
+	border-radius: 0;
+	@include square(24px);
+
+	&::after {
+		left: 7px;
+		top: 1px;
+		width: 8px;
+		height: 16px;
+		border-width: 0px 3px 3px 0;
+	}
+}
+.cookie-checkbox-text {
+	gap: 10px;
+	strong {
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 1;
+	}
+	.cookie-setting-desc {
+		font-size: adapt(16, 14);
+	}
+}
+.cookie-setting-desc {
+}
+.cookie-modal-actions {
+	padding-top: 0;
+	border: 0;
+
+	@include media($mobile, min) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 10px;
+		justify-content: center;
+
+		& > * {
+			flex: 0 1 290px;
+		}
+	}
+
+	.cookie-btn-settings {
+		@include media($mobile, min) {
+			flex: 0 1 256px;
+		}
+		color: var(--color-white);
+		text-decoration: none;
+
+		@include hover {
+			background: var(--color-accent-hover);
+			color: var(--color-white);
+		}
+	}
+}

@@ -1,0 +1,67 @@
+@use "../tools" as *;
+
+.autopark {
+
+	&__container {
+	}
+
+	&__header {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+	}
+
+	&__info {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__title {
+		color: var(--color-dark);
+	}
+
+	&__descr {
+		max-width: 794px;
+	}
+
+	&__nav {
+		flex-shrink: 0;
+	}
+
+	&__swiper {
+		width: 100%;
+		overflow: visible;
+
+		.swiper-wrapper {
+			// Мобильный: 1 слайд, симметричные отступы
+			padding-left: container-padding();
+			padding-right: container-padding();
+
+			// Планшет (2 слайда) и десктоп (3 слайда):
+			// первый слайд начинается по границе контейнера,
+			// остальные уходят за правый край
+			@media (min-width: 768px) {
+				padding-left: container-padding();
+				padding-right: 0;
+			}
+		}
+
+		// Компенсация spaceBetween для последнего слайда,
+		// чтобы он не «прилипал» к правому краю при прокрутке
+		.swiper-slide:last-child {
+			margin-right: 0;
+		}
+	}
+	&__slide {
+	}
+
+	&__nav-container {
+		margin-top: -8px;
+	}
+}
+.autopark-slide {
+	&__wrapper {
+		display: flex;
+		height: adapt(345, 240);
+	}
+}

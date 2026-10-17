@@ -1,0 +1,50 @@
+@use "../tools" as *;
+
+.geo {
+	position: relative;
+	z-index: 1;
+	background: var(--color-dark);
+	color: var(--color-white-text);
+
+	&__container {
+	}
+
+	&__wrapper {
+		backdrop-filter: blur(20px);
+		background: rgba(30, 27, 27, 0.35);
+		padding: adapt(48, 32, $tablet) adapt(20, 10, $tablet);
+	}
+
+	&__title {
+		color: var(--color-white);
+	}
+
+	&__grid {
+		gap: 24px adapt(64, 32, $finishBreakpoint, $laptop-sm);
+	}
+
+	&__item {
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+		@include overlay(var(--color-dark), 0.6);
+	}
+}
+
+.geo-item {
+	@include flex-column;
+	gap: 10px;
+	&__image {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+}

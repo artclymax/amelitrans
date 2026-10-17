@@ -1,0 +1,76 @@
+@use "../tools" as *;
+
+.tariffs {
+	&__container {
+	}
+	&__header {
+		@include flex-column;
+		gap: 20px;
+	}
+	&__title {
+		color: var(--color-dark);
+	}
+	&__note {
+		max-width: 790px;
+	}
+
+	&__table-wrapper {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch; // плавный скролл на iOS
+
+		// Стили самой таблицы — через родителя, без классов на <table>
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			min-width: 600px; // минимальная ширина, чтобы не сжималась в кашу
+
+			th,
+			td {
+				padding: 10px;
+				border: 2px solid var(--color-dark);
+				text-align: center;
+				vertical-align: middle;
+			}
+
+			thead th {
+				background: var(--color-dark);
+				color: var(--color-white);
+				border-inline: 2px solid var(--color-white);
+				font-weight: 500;
+				min-width: 299px;
+				@include media($mobile) {
+					min-width: 250px;
+				}
+
+				&:first-child {
+					border-left-color: var(--color-dark);
+				}
+				&:last-child {
+					border-right-color: var(--color-dark);
+				}
+			}
+
+			tbody td {
+				min-width: 299px;
+				@include media($mobile) {
+					min-width: 250px;
+				}
+			}
+		}
+
+		// Кастомный скроллбар (опционально)
+		&::-webkit-scrollbar {
+			height: 6px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: #f0f0f0;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #ccc;
+			//border-radius: 3px;
+		}
+	}
+}

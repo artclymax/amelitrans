@@ -1,0 +1,42 @@
+@use "../tools" as *;
+
+.how-we-work {
+	&__container {
+	}
+
+	&__title {
+		color: var(--color-dark);
+	}
+
+	&__grid {
+		gap: adapt(32, 24, $tablet);
+	}
+
+	&__item {
+	}
+}
+
+.how-we-work-item {
+	@include flex-column;
+	gap: 10px;
+	align-items: start;
+
+	&__number {
+		@include square(44px);
+		@include flex-center;
+		text-align: center;
+		background: var(--color-accent);
+		color: var(--color-white);
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__title {
+		color: var(--color-dark);
+	}
+
+	&__descr {
+	}
+}
