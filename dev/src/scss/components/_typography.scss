@@ -1,0 +1,27 @@
+@use "../tools" as *;
+
+.upcase {
+	text-transform: uppercase;
+}
+.t-center {
+	text-align: center !important;
+}
+
+.title-1 {
+	@include title-1;
+}
+.title-2 {
+	@include title-2;
+}
+.title-3 {
+	@include title-3;
+}
+.text-menu {
+	@include text-menu;
+}
+.text-label {
+	@include text-label;
+}
+.text {
+	@include text;
+}

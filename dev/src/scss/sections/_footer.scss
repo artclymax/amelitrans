@@ -1,0 +1,75 @@
+@use "../tools" as *;
+
+.footer {
+	background: var(--color-dark);
+	padding-block: 32px;
+	color: var(--color-white-text);
+	font-size: 14px;
+
+	&__container {
+		@include flex-column;
+		gap: adapt(32, 24);
+	}
+
+	&__logo {
+	}
+
+	&__middle {
+		display: flex;
+		justify-content: space-between;
+		gap: 24px;
+
+		@include media($mobile) {
+			flex-direction: column;
+		}
+	}
+
+	&__menu {
+	}
+
+	&__descr {
+		@include media($mobile, min) {
+			text-align: right;
+		}
+
+		a {
+			@include hover-link(var(--color-accent));
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+
+		@include media($mobile) {
+			flex-direction: column;
+			align-items: start;
+		}
+	}
+
+	&__copy {
+		@include media($mobile) {
+			order: 2;
+		}
+	}
+
+	&__bottom-links {
+		display: flex;
+		gap: adapt(20, 10, $tablet);
+		flex-wrap: wrap;
+	}
+
+	&__bottom-link {
+	}
+}
+.footer-menu {
+	@include reset-list;
+	@include flex-column;
+	gap: 10px;
+
+	a {
+		@include hover-link(var(--color-accent));
+	}
+}

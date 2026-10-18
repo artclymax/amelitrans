@@ -1,0 +1,114 @@
+@use "../tools" as *;
+
+.section-contacts {
+	position: relative;
+	z-index: 1;
+	background: var(--color-dark);
+	color: var(--color-white-text);
+	&__container {
+	}
+	&__wrapper {
+		backdrop-filter: blur(20px);
+		background: rgba(30, 27, 27, 0.35);
+		padding: adapt(48, 32, $tablet) adapt(20, 10, $tablet);
+	}
+	&__title {
+		color: var(--color-white);
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: adapt(32, 24, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 32px;
+		}
+	}
+
+	&__info {
+		@include flex-column;
+		gap: adapt(48, 32);
+	}
+
+	&__info-box {
+		@include flex-column;
+		gap: adapt(32, 24);
+	}
+
+	&__info-title {
+		color: var(--color-white);
+	}
+
+	&__info-list {
+	}
+
+	&__form-wrap {
+		@include flex-column;
+
+		.form-wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			@include media($tablet) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+
+	&__form-title {
+		color: var(--color-white);
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__form-descr {
+		&:not(:last-child) {
+			margin-bottom: adapt(32, 24);
+		}
+	}
+
+	&__form {
+		.form-checkbox-icon {
+			border-color: var(--color-white-text);
+		}
+	}
+
+	&__bg {
+		@include image-abs;
+		z-index: -1;
+		@include overlay(var(--color-dark), 0.35);
+	}
+}
+.contacts-info-list {
+	@include flex-column;
+	gap: 20px;
+
+	&__item {
+		display: flex;
+		gap: 20px;
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		&.icon {
+			align-items: start;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 10px;
+	}
+
+	&__label {
+	}
+
+	&__value,
+	.contacts-list,
+	.contacts-descr {
+		font-weight: 500;
+		color: var(--color-white);
+	}
+}

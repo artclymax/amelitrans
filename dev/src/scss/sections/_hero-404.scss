@@ -1,0 +1,54 @@
+@use "../tools" as *;
+
+.page-404 {
+	position: relative;
+	z-index: 1;
+	color: var(--color-white);
+	background: var(--color-dark);
+	padding-top: calc(var(--header-height) + adapt(120, 60));
+	min-height: calc(100dvh - (var(--header-height)));
+
+	&__container {
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(32, 24);
+		max-width: 630px;
+	}
+
+	&__number {
+		font-size: adapt(250, 150);
+		color: var(--color-accent);
+		line-height: 1;
+	}
+
+	&__title {
+		color: var(--color-white);
+	}
+
+	&__descr {
+		font-weight: 500;
+		max-width: 540px;
+		
+	}
+
+	&__btn-box {
+		margin-top: 16px;
+	}
+
+	&__btn {
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+		@include overlay(var(--color-dark), 0.5);
+
+		//@include media($mobile) {
+		//	--object-pos: top 50%;
+
+		//	@include overlay(var(--color-dark), 0.5);
+		//}
+	}
+}

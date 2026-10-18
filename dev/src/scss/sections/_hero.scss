@@ -1,0 +1,71 @@
+@use "../tools" as *;
+
+.hero {
+	position: relative;
+	z-index: 1;
+	padding-block: calc(var(--section-padding) + var(--header-height)) var(--section-padding);
+	background: var(--color-dark);
+	color: var(--color-white-text);
+
+	&__container {
+		@include flex-column;
+		gap: adapt(80, 48, $mobile);
+	}
+
+	&__top {
+		max-width: 610px;
+		@include flex-column;
+		align-items: start;
+	}
+
+	&__title {
+		color: var(--color-white);
+		&:not(:last-child) {
+			margin-bottom: adapt(32, 24);
+		}
+	}
+
+	&__descr {
+		text-wrap: balance;
+
+		&:not(:last-child) {
+			margin-bottom: adapt(48, 32);
+		}
+	}
+
+	&__btn {
+	}
+
+	&__benefits {
+		backdrop-filter: blur(20px);
+		background: rgba(30, 27, 27, 0.25);
+		padding: adapt(32, 10);
+		gap: adapt(32, 24);
+	}
+
+	&__item {
+	}
+
+	&__image {
+		--overlay-opacity: 0.35;
+		@include image-abs;
+		z-index: -1;
+		@include overlay(var(--color-dark), var(--overlay-opacity));
+
+		@include media($tablet) {
+			--overlay-opacity: 0.5;
+		}
+	}
+}
+.hero-item {
+	@include flex-column;
+	gap: 10px;
+
+	&__title {
+		color: var(--color-white);
+	}
+
+	&__descr {
+		font-weight: 500;
+	}
+}

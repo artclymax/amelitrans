@@ -1,0 +1,13 @@
+@use "../tools" as *;
+
+.icon {
+	--width: 32px;
+	--bg-size: 24px;
+	--bg-color: var(--color-accent);
+	gap: 10px;
+}
+
+.section-gap {
+	@include flex-column;
+	gap: adapt(48, 32);
+}
